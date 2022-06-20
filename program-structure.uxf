@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>530</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+InputReader
+--
+--
++ readData: ArrayList&lt;String[]&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>160</y>
+      <w>200</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
++ solveWeatherTask: String
++ solveSoccerTask: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>610</x>
+      <y>170</y>
+      <w>230</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Calls readData of (Specific-)InputReader,
+Creates The necessary MinDiscrepancySelector,
+executes SelectRow and returns required column
+
+bg=orange
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>530</y>
+      <w>310</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+RowSelector
+--
+--
++ selectRow(table: ArrayList&lt;String[]&gt;): String[]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>360</y>
+      <w>460</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>MinDiscrepancySelector
+--
+- firstColumn: String
+- secondColumn: String
+--
+MinDiscrepancySelector(_firstColumn: String, _secondColumn: String)
++ selectRow(table: ArrayList&lt;String[]&gt;): String[]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>470</y>
+      <w>120</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>380</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>CSVInputReader
+--
+--
+CSVInputReader(fileName: String)
++ readData: ArrayList&lt;String[]&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>440</y>
+      <w>120</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;implements&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>280</y>
+      <w>170</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+uses for
+calculations
+m1=1..n
+r2=1
+r2pos=-20,0</panel_attributes>
+    <additional_attributes>130.0;80.0;130.0;40.0;20.0;40.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>280</y>
+      <w>260</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1..n
+r2=1
+
+uses to read files</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;40.0;230.0;40.0;230.0;10.0</additional_attributes>
+  </element>
+</diagram>
