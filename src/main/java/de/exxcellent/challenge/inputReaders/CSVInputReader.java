@@ -1,7 +1,9 @@
 package de.exxcellent.challenge.inputReaders;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 /**
@@ -15,8 +17,16 @@ public class CSVInputReader implements InputReader{
 
     private BufferedReader reader;
 
-    public CSVInputReader(String _fileName) throws FileNotFoundException, WrongFileTypeException{
-
+    /**
+     * Creates a CSVInputReader that uses a BufferedReader to read .csv files.
+     * @param filePath the path from the repository root
+     * @throws FileNotFoundException if the filePath does not belong to a readable file
+     * @throws WrongFileTypeException if the type of the specified file is any other than .csv or missing entirely
+     */
+    public CSVInputReader(String filePath) throws FileNotFoundException, WrongFileTypeException{
+        this.reader = new BufferedReader(new FileReader(filePath));
+        if(!filePath.endsWith(".csv"))
+            throw new WrongFileTypeException("The CSVInputReader can only handle .csv files");
     }
 
     /**
