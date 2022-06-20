@@ -13,7 +13,7 @@ public class CSVInputReader implements InputReader{
 
     private String fileName;
 
-    public CSVInputReader(String _fileName) {
+    public CSVInputReader(String _fileName) throws WrongFileTypeException{
         this.fileName = _fileName;
     }
 
