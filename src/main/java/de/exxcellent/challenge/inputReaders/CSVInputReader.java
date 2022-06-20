@@ -18,12 +18,12 @@ public class CSVInputReader implements InputReader{
      * Creates a CSVInputReader that uses a BufferedReader to read .csv files.
      * @param filePath the path from the repository root
      * @throws FileNotFoundException if the filePath does not belong to a readable file
-     * @throws WrongFileTypeException if the type of the specified file is any other than .csv or missing entirely
+     * @throws IncorrectFileTypeException if the type of the specified file is any other than .csv or missing entirely
      */
-    public CSVInputReader(String filePath) throws FileNotFoundException, WrongFileTypeException{
+    public CSVInputReader(String filePath) throws FileNotFoundException, IncorrectFileTypeException {
         this.reader = new BufferedReader(new FileReader(filePath));
         if(!filePath.endsWith(".csv"))
-            throw new WrongFileTypeException("The CSVInputReader can only handle .csv files");
+            throw new IncorrectFileTypeException("The CSVInputReader can only handle .csv files");
     }
 
     /**

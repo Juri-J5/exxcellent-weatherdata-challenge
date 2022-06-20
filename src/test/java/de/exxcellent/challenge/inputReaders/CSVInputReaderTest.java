@@ -20,7 +20,7 @@ public class CSVInputReaderTest {
             Assertions.fail();
         }catch (FileNotFoundException e){
             //The file not being found and the appropriate error being thrown is correct
-        }catch (WrongFileTypeException e){
+        }catch (IncorrectFileTypeException e){
             Assertions.fail();
         }
         try{                    //The fil is of a wrong type and therefore the appropriate exception needs to be thrown
@@ -28,7 +28,7 @@ public class CSVInputReaderTest {
             Assertions.fail();
         }catch(FileNotFoundException e){
             Assertions.fail();
-        }catch (WrongFileTypeException e){
+        }catch (IncorrectFileTypeException e){
             //The type of the file .txt and not .csv so this is the expected behaviour
         }
         try{                    //the call is correct and therefore no Exception should be thrown
