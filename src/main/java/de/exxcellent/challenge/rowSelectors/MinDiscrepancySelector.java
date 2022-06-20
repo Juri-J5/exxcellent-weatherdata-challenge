@@ -1,4 +1,4 @@
-package de.exxcellent.challenge.RowSelectors;
+package de.exxcellent.challenge.rowSelectors;
 
 import java.util.ArrayList;
 

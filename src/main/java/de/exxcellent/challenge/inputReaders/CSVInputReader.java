@@ -1,4 +1,4 @@
-package de.exxcellent.challenge.InputReaders;
+package de.exxcellent.challenge.inputReaders;
 
 import java.util.ArrayList;
 

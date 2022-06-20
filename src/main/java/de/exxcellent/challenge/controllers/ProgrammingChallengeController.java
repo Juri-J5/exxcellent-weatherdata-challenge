@@ -1,4 +1,4 @@
-package de.exxcellent.challenge.Controllers;
+package de.exxcellent.challenge.controllers;
 
 public class ProgrammingChallengeController {
     public String solveWeatherTask(){
