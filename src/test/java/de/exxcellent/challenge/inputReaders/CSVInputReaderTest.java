@@ -41,12 +41,18 @@ public class CSVInputReaderTest {
     @Test
     void testReadData(){
         try{                    //the call is correct and therefore no Exception should be thrown
-            ArrayList<String[]> result = new ArrayList<>();
-            result.add(new String[]{"Id","Name","Answer"});
-            result.add(new String[]{"0", "Philipp", "42"});
-            result.add(new String[]{"1", "Donald", "113"});
+            ArrayList<String[]> expected = new ArrayList<>();
+            expected.add(new String[]{"Id","Name","Answer"});
+            expected.add(new String[]{"0", "Philipp", "42"});
+            expected.add(new String[]{"1", "Donald", "113"});
             CSVInputReader reader = new CSVInputReader("src/main/resources/de/exxcellent/challenge/testinput.csv");
-            Assertions.assertEquals(result, reader.readData());
+            ArrayList<String[]> actual = reader.readData();
+            for(int row = 0; row < expected.size(); row++) {
+                for (int column = 0; column < expected.get(0).length; column++) {
+                    System.out.println(expected.get(row)[column]+ "; "+ actual.get(row)[column]);
+                    Assertions.assertEquals(expected.get(row)[column], actual.get(row)[column]);
+                }
+            }
         }catch(Exception e){
             Assertions.fail();
         }
