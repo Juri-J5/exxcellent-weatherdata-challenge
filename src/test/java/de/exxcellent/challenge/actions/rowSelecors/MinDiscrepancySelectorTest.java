@@ -61,6 +61,14 @@ public class MinDiscrepancySelectorTest {
     }
 
     @Test
+    void testSelectRowNotIntegerValues(){
+        ArrayList<String[]> table = new ArrayList<>();
+        table.add(new String[]{"value1","value2"});
+        table.add(new String[]{"0","not an integer"});
+        Assertions.assertEquals(new String[0], selector.selectRow(table));
+    }
+
+    @Test
     void testSelectRowCorrectMinimum() {
         ArrayList<String[]> table = new ArrayList<>();
         //tests whether the method is capable of finding a correct minimum
