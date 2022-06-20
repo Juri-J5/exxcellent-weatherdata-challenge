@@ -5,9 +5,16 @@ This decision a precaution, because I have limited knoweledge of licenses and wi
 The original source can be found at https://github.com/exxcellent/programming-challenge/blob/challenge-weatherdata
 
 The following files are exact copies from the source:
-- 
+- continuous-integration.yml
+- .gitlab.ci.yml
+- .travis.yml
+- football.csv
+- weather.csv
+- pom.xml
 
 The following files have been modified:
-- 
+- App.java
+- package-info.java
+- AppTest.java
 
 For any other files I am the only author, although the contents are based on the instructions given by the source
