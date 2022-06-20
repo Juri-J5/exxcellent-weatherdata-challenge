@@ -1,0 +1,2 @@
+This file exists solely for the purpose of testing.
+In more detail, it can be used to test whether a reader can identify the correct file ending or not.
