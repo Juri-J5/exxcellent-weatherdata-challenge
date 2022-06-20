@@ -65,7 +65,7 @@ public class MinDiscrepancySelectorTest {
         ArrayList<String[]> table = new ArrayList<>();
         table.add(new String[]{"value1","value2"});
         table.add(new String[]{"0","not an integer"});
-        Assertions.assertEquals(new String[0], selector.selectRow(table));
+        Assertions.assertEquals(0, selector.selectRow(table).length);
     }
 
     @Test
