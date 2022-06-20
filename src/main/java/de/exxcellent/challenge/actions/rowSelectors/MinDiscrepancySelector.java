@@ -1,7 +1,6 @@
 package de.exxcellent.challenge.actions.rowSelectors;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * An action that takes two column names upon creation.
@@ -65,7 +64,7 @@ public class MinDiscrepancySelector implements RowSelector{
                     minDifference = difference;
                     resultIndex = i;
                 }
-            }catch(NullPointerException e){
+            }catch(NumberFormatException e){
                 continue;
             }
         }
