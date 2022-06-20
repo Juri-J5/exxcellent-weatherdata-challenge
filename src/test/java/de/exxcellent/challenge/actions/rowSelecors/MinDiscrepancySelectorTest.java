@@ -75,6 +75,6 @@ public class MinDiscrepancySelectorTest {
         //tests if the method returns the first entry, if there are multiple minima
         table.add(new String[]{"0","2","6"});
         actual = selector.selectRow(table);
-        Assertions.assertEquals(table.get(3)[1],actual[1]);
+        Assertions.assertEquals(table.get(2)[1],actual[1]);
     }
 }
