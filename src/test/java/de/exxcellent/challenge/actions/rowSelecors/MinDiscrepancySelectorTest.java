@@ -40,6 +40,14 @@ public class MinDiscrepancySelectorTest {
     }
 
     @Test
+    void testSelectRowTooFewColumns(){
+        ArrayList<String[]> table = new ArrayList<>();
+        table.add(new String[]{"value2"});
+        table.add(new String[]{"0"});
+        Assertions.assertNull(selector.selectRow(table));
+    }
+
+    @Test
     void testSelectRowDuplicateColumn() {
         ArrayList<String[]> table = new ArrayList<>();
         table.add(new String[]{"foo","bar","value2","value1","value2"});
