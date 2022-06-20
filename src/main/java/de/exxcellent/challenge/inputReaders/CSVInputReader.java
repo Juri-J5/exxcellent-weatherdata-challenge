@@ -1,9 +1,6 @@
 package de.exxcellent.challenge.inputReaders;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -35,7 +32,16 @@ public class CSVInputReader implements InputReader{
      */
     @Override
     public ArrayList<String[]> readData() {
-        //TODO
-        return null;
+        try{
+            ArrayList<String[]> result = new ArrayList<>();
+            String line;
+            while ((line = this.reader.readLine()) != null)
+            {
+                result.add(line.split(","));
+            }
+            return result;
+        }catch (IOException e) {
+            return null;
+        }
     }
 }
