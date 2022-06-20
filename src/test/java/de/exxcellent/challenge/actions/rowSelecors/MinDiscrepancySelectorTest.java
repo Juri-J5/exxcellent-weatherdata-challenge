@@ -2,6 +2,7 @@ package de.exxcellent.challenge.actions.rowSelecors;
 
 import de.exxcellent.challenge.actions.rowSelectors.MinDiscrepancySelector;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,13 +14,21 @@ import java.util.ArrayList;
  */
 public class MinDiscrepancySelectorTest {
 
-    @Test
-    void testSelectRow(){
-        MinDiscrepancySelector selector = new MinDiscrepancySelector("value1","value2");
+    private MinDiscrepancySelector selector;
 
+    @BeforeEach
+    void setUp(){
+        selector = new MinDiscrepancySelector("value1","value2");
+    }
+
+    @Test
+    void testSelectRowNullInput() {
         //tests if the method can handle null input
         Assertions.assertNull(selector.selectRow(null));
-        
+    }
+
+    @Test
+    void testSelectRowMissingColumn() {
         //tests if the return value is null for missing column(s) in the table
         ArrayList<String[]> table = new ArrayList<>();
         table.add(new String[]{"foo", "value1"});
@@ -30,7 +39,11 @@ public class MinDiscrepancySelectorTest {
         table.remove(0);
         table.add(new String[]{"foo", "bar"});
         Assertions.assertNull(selector.selectRow(table));
-
+    }
+    
+    @Test
+    void testSelectRowCorrectMinimum() {
+        ArrayList<String[]> table = new ArrayList<>();
         //tests whether the method is capable of finding a correct minimum
         table.add(new String[]{"value1","Id","value2"});
         table.add(new String[]{"1","0","20"});
