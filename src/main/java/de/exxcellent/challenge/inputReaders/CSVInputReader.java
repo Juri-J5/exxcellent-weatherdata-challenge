@@ -1,5 +1,7 @@
 package de.exxcellent.challenge.inputReaders;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -11,10 +13,10 @@ import java.util.ArrayList;
  */
 public class CSVInputReader implements InputReader{
 
-    private String fileName;
+    private BufferedReader reader;
 
-    public CSVInputReader(String _fileName) throws WrongFileTypeException{
-        this.fileName = _fileName;
+    public CSVInputReader(String _fileName) throws FileNotFoundException, WrongFileTypeException{
+
     }
 
     /**
