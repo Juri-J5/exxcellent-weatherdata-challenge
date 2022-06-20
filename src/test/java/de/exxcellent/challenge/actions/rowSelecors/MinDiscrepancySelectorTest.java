@@ -32,12 +32,10 @@ public class MinDiscrepancySelectorTest {
         //tests if the return value is null for missing column(s) in the table
         ArrayList<String[]> table = new ArrayList<>();
         table.add(new String[]{"foo", "value1"});
+        table.add(new String[]{"0","0"});
         Assertions.assertNull(selector.selectRow(table));
         table.remove(0);
-        table.add(new String[]{"value2"});
-        Assertions.assertNull(selector.selectRow(table));
-        table.remove(0);
-        table.add(new String[]{"foo", "bar"});
+        table.add(0, new String[]{"foo", "bar"});
         Assertions.assertNull(selector.selectRow(table));
     }
 
