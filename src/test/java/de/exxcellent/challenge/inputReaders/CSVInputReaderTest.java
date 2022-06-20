@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 /**
  * Tests the {@link de.exxcellent.challenge.inputReaders.CSVInputReader} class.
@@ -39,6 +40,15 @@ public class CSVInputReaderTest {
 
     @Test
     void testReadData(){
-        
+        try{                    //the call is correct and therefore no Exception should be thrown
+            ArrayList<String[]> result = new ArrayList<>();
+            result.add(new String[]{"Id","Name","Answer"});
+            result.add(new String[]{"0", "Philipp", "42"});
+            result.add(new String[]{"1", "Donald", "113"});
+            CSVInputReader reader = new CSVInputReader("src/main/resources/de/exxcellent/challenge/testinput.csv");
+            Assertions.assertEquals(result, reader.readData());
+        }catch(Exception e){
+            Assertions.fail();
+        }
     }
 }
