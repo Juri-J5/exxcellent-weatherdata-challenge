@@ -71,6 +71,16 @@ public class ProgrammingChallengeController {
             return selectedRow;
         }
     }
+    private String selectEntry(String[] columns, String[] values, String columnToSelect){
+        if(columns.length != values.length || null == columnToSelect)
+            return null;
+        for (int i = 0; i < columns.length; i++) {
+            if(columnToSelect.equals(columns[i])){
+                return values[i];
+            }
+        }
+        return null;
+    }
 
     public String solveFootballTask(){
         //TODO
