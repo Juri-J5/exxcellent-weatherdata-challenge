@@ -24,16 +24,14 @@ public class ProgrammingChallengeController {
      * @return The first entry of the row, with minimal distance between MnT and MxT
      */
     public String solveWeatherTask() {
-        CSVInputReader reader;
-        try{
-             reader = new CSVInputReader("src/main/resources/de/exxcellent/challenge/weather.csv");
-        }catch(FileNotFoundException e){
-            System.out.println("Failed to perform weather task, because the file specified does not exist.");
+        String selectedRow = applyMinDiscrepancySelectorOnCSV("src/main/resources/de/exxcellent/challenge/weather.csv","MxT","MnT");
+        return selectedRow;
+    }
+
+    public String applyMinDiscrepancySelectorOnCSV(String filePath, String firstColumnName, String secondColumnName){
+        CSVInputReader reader = this.createCSVInputReader(filePath);
+        if(null == reader)
             return "";
-        }catch(IncorrectFileTypeException e){
-            System.out.println("Failed to perform the task, because the specified file is not a .csv file.");
-            return "";
-        }
 
         ArrayList<String[]> readTable = reader.readData();
         if(null == readTable) {
@@ -41,18 +39,36 @@ public class ProgrammingChallengeController {
             return "";
         }
 
-
         //Passing Max first, so that difference should be positive even without MAth.abs
-        MinDiscrepancySelector selector = new MinDiscrepancySelector("MxT","MnT");
-        String[] selectedRow = selector.selectRow(readTable);
+        String[] selectedRow = this.applyMinDiscrepancySelector(readTable, firstColumnName, secondColumnName);
+        if(null == selectedRow)
+            return "";
+        
+        return selectedRow[0];
+    }
+
+    private CSVInputReader createCSVInputReader(String filePath){
+        try{
+            return new CSVInputReader(filePath);
+        }catch(FileNotFoundException e){
+            System.out.println("Failed to perform weather task, because the file specified does not exist.");
+        }catch(IncorrectFileTypeException e){
+            System.out.println("Failed to perform the task, because the specified file is not a .csv file.");
+        }
+        return null;
+    }
+
+    private String[] applyMinDiscrepancySelector(ArrayList<String[]> table, String firstColumnName, String secondColumnName){
+        MinDiscrepancySelector selector = new MinDiscrepancySelector(firstColumnName,secondColumnName);
+        String[] selectedRow = selector.selectRow(table);
         if(null == selectedRow){
             System.out.println("Failed to perform the task, because there are either too many or too few column names in the table, that match the requested column names.");
-            return "";
+            return null;
         }else if(Arrays.equals(new String[0], selectedRow)){
             System.out.println("Failed to perform the task, because the table contains too many non-integer values and a minimum could therefore not be found.");
-            return "";
+            return null;
         }else{
-            return selectedRow[0];
+            return selectedRow;
         }
     }
 
