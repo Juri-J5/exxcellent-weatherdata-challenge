@@ -24,11 +24,13 @@ public class ProgrammingChallengeController {
      * @return The first entry of the row, with minimal distance between MnT and MxT
      */
     public String solveWeatherTask() {
-        String selectedRow = applyMinDiscrepancySelectorOnCSV("src/main/resources/de/exxcellent/challenge/weather.csv","MxT","MnT");
-        return selectedRow;
+        return applyMinDiscrepancySelectorOnCSV("src/main/resources/de/exxcellent/challenge/weather.csv",
+                "MxT",
+                "MnT",
+                "Day");
     }
 
-    public String applyMinDiscrepancySelectorOnCSV(String filePath, String firstColumnName, String secondColumnName){
+    public String applyMinDiscrepancySelectorOnCSV(String filePath, String firstColumnName, String secondColumnName, String targetColumn){
         CSVInputReader reader = this.createCSVInputReader(filePath);
         if(null == reader)
             return "";
@@ -43,8 +45,9 @@ public class ProgrammingChallengeController {
         String[] selectedRow = this.applyMinDiscrepancySelector(readTable, firstColumnName, secondColumnName);
         if(null == selectedRow)
             return "";
-        
-        return selectedRow[0];
+
+        String selectedCell = this.selectEntry(readTable.get(0), selectedRow, targetColumn);
+        return selectedCell;
     }
 
     private CSVInputReader createCSVInputReader(String filePath){
@@ -72,13 +75,21 @@ public class ProgrammingChallengeController {
         }
     }
     private String selectEntry(String[] columns, String[] values, String columnToSelect){
-        if(columns.length != values.length || null == columnToSelect)
+        if(columns.length != values.length) {
+            System.out.println("Failed to perform the task, because the selected row does not match the number of columns in the table.");
             return null;
+        }
+        if(null == columnToSelect){
+            System.out.println("Failed to perform the task, because no column was selected as output.");
+            return null;
+        }
+
         for (int i = 0; i < columns.length; i++) {
             if(columnToSelect.equals(columns[i])){
                 return values[i];
             }
         }
+        System.out.println("Failed to perform the task, because the specified table does not contain the output target column.");
         return null;
     }
 
