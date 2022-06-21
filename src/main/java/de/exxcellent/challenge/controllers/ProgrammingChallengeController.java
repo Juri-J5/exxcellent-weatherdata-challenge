@@ -55,4 +55,9 @@ public class ProgrammingChallengeController {
             return selectedRow[0];
         }
     }
+
+    public String solveFootballTask(){
+        //TODO
+        return "";
+    }
 }
