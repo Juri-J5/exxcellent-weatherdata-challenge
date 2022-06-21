@@ -88,7 +88,7 @@ public class ProgrammingChallengeController {
      * @param table the table the MinDiscrepancySelector will be applied on
      * @param firstColumnName the first of the two columns the MinDiscrepancySelector will compare
      * @param secondColumnName the second of the two columns the MinDiscrepancySelector will compare
-     * @return the row selected by the MinDiscrepancySelector or null if an error occured
+     * @return the row selected by the MinDiscrepancySelector or null if an error occurred
      */
     private String[] applyMinDiscrepancySelector(ArrayList<String[]> table, String firstColumnName, String secondColumnName){
         MinDiscrepancySelector selector = new MinDiscrepancySelector(firstColumnName,secondColumnName);
@@ -131,6 +131,13 @@ public class ProgrammingChallengeController {
         return null;
     }
 
+    /**
+     * Solves the football challenge when called.
+     * Internally uses a CSVInputReader to read the football.csv file and
+     * a MinDiscrepancySelector to choose the row with minimal difference between
+     * Goals and Goals Allowed.
+     * @return The entry in the "Team" column of the row, that has the minimal distance between "Goals" and "Goals Allowed"
+     */
     public String solveFootballTask(){
         return this.applyMinDiscrepancySelectorOnCSV(
                 "src/main/resources/de/exxcellent/challenge/football.csv",
