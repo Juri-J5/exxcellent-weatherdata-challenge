@@ -24,7 +24,8 @@ public class ProgrammingChallengeController {
      * @return The entry in the "Day" column of the row, that has the minimal distance between "MnT" and "MxT"
      */
     public String solveWeatherTask() {
-        return applyMinDiscrepancySelectorOnCSV("src/main/resources/de/exxcellent/challenge/weather.csv",
+        return applyMinDiscrepancySelectorOnCSV(
+                "src/main/resources/de/exxcellent/challenge/weather.csv",
                 "MxT",
                 "MnT",
                 "Day");
@@ -128,7 +129,10 @@ public class ProgrammingChallengeController {
     }
 
     public String solveFootballTask(){
-        //TODO
-        return "";
+        return this.applyMinDiscrepancySelectorOnCSV(
+                "src/main/resources/de/exxcellent/challenge/football.csv",
+                "Goals",
+                "Goals Allowed",
+                "Team");
     }
 }
