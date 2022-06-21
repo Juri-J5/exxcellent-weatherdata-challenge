@@ -57,6 +57,9 @@ public class ProgrammingChallengeController {
             return "";
 
         String selectedCell = this.selectEntry(readTable.get(0), selectedRow, targetColumn);
+        if(null == selectedCell){
+            return "";
+        }
         return selectedCell;
     }
 
