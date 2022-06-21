@@ -14,5 +14,5 @@ public interface RowSelector {
      * @param table The table, of which a single row has to be selected.
      * @return the row, which was selected.
      */
-    public String[] selectRow(ArrayList<String[]> table);
+    String[] selectRow(ArrayList<String[]> table);
 }

@@ -14,5 +14,5 @@ public interface InputReader {
      * This method extracts a table from a previously specified file.
      * @return the extracted table.
      */
-    public ArrayList<String[]> readData();
+    ArrayList<String[]> readData();
 }
