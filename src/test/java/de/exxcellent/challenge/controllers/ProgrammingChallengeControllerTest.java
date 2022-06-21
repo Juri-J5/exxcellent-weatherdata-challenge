@@ -25,6 +25,6 @@ public class ProgrammingChallengeControllerTest {
 
     @Test
     void testSolveFootballTask(){
-        Assertions.assertEquals("Aston_Villa", this.controller.solveWeatherTask());
+        Assertions.assertEquals("Aston_Villa", this.controller.solveFootballTask());
     }
 }
