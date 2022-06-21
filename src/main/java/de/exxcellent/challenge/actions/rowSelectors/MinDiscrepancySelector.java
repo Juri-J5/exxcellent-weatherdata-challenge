@@ -64,9 +64,7 @@ public class MinDiscrepancySelector implements RowSelector{
                     minDifference = difference;
                     resultIndex = i;
                 }
-            }catch(NumberFormatException e){
-                continue;
-            }
+            }catch(NumberFormatException ignored){}
         }
         if(resultIndex < 0)
             return new String[0];

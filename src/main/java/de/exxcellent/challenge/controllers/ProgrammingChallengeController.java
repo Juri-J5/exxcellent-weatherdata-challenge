@@ -7,7 +7,6 @@ import de.exxcellent.challenge.inputReaders.IncorrectFileTypeException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * This controller performs all steps necessary in order to fulfill the programming challenge.
